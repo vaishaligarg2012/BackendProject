@@ -1,5 +1,5 @@
 package com.backend.DAO;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -31,14 +31,19 @@ public class CategoryDAOImpl implements CategoryDAO{
 			return false;
 		}
 	}
-
-	public List<Category> viewAllCategory() {
+	
+	public List<Category> getAllCategory() {
+		 List<Category> list = new ArrayList<Category>();
+	       
 		// TODO Auto-generated method stub
 		Session session=sf.openSession();
-	    Criteria c=session.createCriteria(Category.class);
-	    List<Category> cList= c.list();
-	   // System.out.println(cList);
-        return cList;
+		Transaction tx = session.getTransaction();
+         tx.begin();
+	    list =session.createQuery("from Category").list();
+
+	    tx.commit();
+	    System.out.println("check"+list);
+        return list;
 	}
 
 }
