@@ -18,7 +18,7 @@ public class Category {
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="CatID")
-	 private int Id;
+	private int Id;
 	private String categoryDesc;
 	private String categoryName;
     
