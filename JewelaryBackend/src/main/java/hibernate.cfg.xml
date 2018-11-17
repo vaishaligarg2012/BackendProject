@@ -6,7 +6,7 @@
 
 <hibernate-configuration>
 
-    <session-factory>  
+    <session-factory>   
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">org.h2.Driver</property>
@@ -15,12 +15,10 @@
         <property name="connection.password"/>
         
         
-		<!-- SQL dialect -->
+		<!-- SQL dialect -->  
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
-
-        
-        <!-- Echo all executed SQL to stdout -->
-        <property name="show_sql">true</property>
+        <!-- Echo all executed SQL to stdout --> 
+        <property name="show_sql">true</property>    
 
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>

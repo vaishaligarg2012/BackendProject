@@ -14,9 +14,15 @@ import com.backend.Model.Product;
 public class ProductDAOImpl implements ProductDAO{
 	SessionFactory sf=SessionFactoryProvider.getSessionFactory();
 
-	public Product addProduct(Product p) {
+	public boolean addProduct(Product p) {
 		// TODO Auto-generated method stub
-		return null;
+		Session session= sf.openSession();
+		Transaction tx=session.beginTransaction();
+		session.save(p);
+		tx.commit();
+		session.close();
+		return true;
+		
 	}
 
 	public List<Product> viewAllProduct() {
@@ -27,7 +33,7 @@ public class ProductDAOImpl implements ProductDAO{
 			Session session=sf.openSession();
 			Transaction tx = session.getTransaction();
 	         tx.begin();
-		    list =session.createQuery("from Products").list();
+		    list =session.createQuery("from Product").list();
 
 		    tx.commit();
 		    System.out.println("check"+list);

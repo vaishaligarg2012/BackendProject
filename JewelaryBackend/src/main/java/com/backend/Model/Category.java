@@ -14,25 +14,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Categories")
 public class Category {
-	
+
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="CatID")
-	private int Id;
+	@Column(name="categoryId")
+	private int categoryId;
+
 	private String categoryDesc;
 	private String categoryName;
-    
-	
+
+
 	@OneToMany(cascade=CascadeType.ALL,mappedBy="category")
 	private List<Product> products=new ArrayList<Product>();
-	
-     public int getId() {
-		return Id;
+
+	public int getCategoryId() {
+		return categoryId;
 	}
-	public void setId(int id) {
-		Id = id;
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
-	 public String getCategoryName() {
+	public String getCategoryName() {
 		return categoryName;
 	}
 	public void setCategoryName(String categoryName) {
@@ -44,6 +45,6 @@ public class Category {
 	public void setCategoryDesc(String categoryDesc) {
 		this.categoryDesc = categoryDesc;
 	}
-	
-     
+
+
 }
