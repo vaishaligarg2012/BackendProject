@@ -13,13 +13,17 @@ import com.backend.Model.Users;
 
 public class CategoryDAOImpl implements CategoryDAO{
 	SessionFactory sf=SessionFactoryProvider.getSessionFactory();
-
+   
+    
+    //Can we create constructor for OpenSession() for not open in all method??
+	
+	 
 	public boolean addCategory(Category cad) {
 		// TODO Auto-generated method stub
 		
 		try {
-
-			Session session=sf.openSession();
+			 Session session=sf.openSession();
+			//Session session=sf.openSession();
 			Transaction tx=session.beginTransaction();
 			session.save(cad);
 			tx.commit();
