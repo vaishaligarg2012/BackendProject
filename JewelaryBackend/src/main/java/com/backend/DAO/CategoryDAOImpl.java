@@ -22,7 +22,7 @@ public class CategoryDAOImpl implements CategoryDAO{
 		// TODO Auto-generated method stub
 		
 		try {
-			 Session session=sf.openSession();
+			Session session=sf.openSession();
 			//Session session=sf.openSession();
 			Transaction tx=session.beginTransaction();
 			session.save(cad);

@@ -3,6 +3,7 @@ package com.backend.ConfigHiber;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+@SuppressWarnings("deprecation")
 public class SessionFactoryProvider {
 	private static SessionFactory sf;
 	static {
